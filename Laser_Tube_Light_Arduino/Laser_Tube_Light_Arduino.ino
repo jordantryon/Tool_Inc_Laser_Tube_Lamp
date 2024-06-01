@@ -3,6 +3,10 @@
 // Project: Laser Tube Light
 // Description: Arduino code for controlling a NeoPixel strip lighting fixture. 
 
+// -------------------------------------- INCLUDE LIBRARIES -------------------------------------- //
+
+#include <Adafruit_NeoPixel.h>
+
 // --------------------------------------- PIN DEFINITIONS --------------------------------------- //
 
 // Define NeoPixel strip pin
@@ -16,6 +20,14 @@
 
 // Button & Switch Inputs
 const int debounce_time = 10;
+
+// NeoPixel
+const int num_pixels = 100;
+Adafruit_NeoPixel strip(num_pixels, pin_neopixel, NEO_GRB + NEO_KHZ800);
+
+// Control
+bool val_a = LOW;
+bool val_b = LOW;
 
 // ----------------------------------- STATE MACHINE VARIABLES ----------------------------------- //
 
@@ -35,8 +47,14 @@ unsigned long t_0_switch_b = 0;
 
 void setup(){
   // Initialize input pins
-  pinMode(pin_switch_a, INPUT_PULLUP);
-  pinMode(pin_switch_b, INPUT_PULLUP);
+  pinMode(pin_switch_a, INPUT);
+  pinMode(pin_switch_b, INPUT);
+
+  // Initialize the NeoPixel object
+  strip.begin();
+  strip.clear();
+  strip.show();
+  strip.setBrightness(255);
   
   // Begin serial communication
   Serial.begin(115200);
@@ -47,6 +65,27 @@ void setup(){
 void loop(){
   SM_switch_a();
   SM_switch_b();
+
+  // Off
+  if(val_a == LOW && val_b == LOW){
+    strip.clear();
+    strip.show();
+  }
+
+  // On - White
+  if(val_a == LOW && val_b == HIGH){
+    strip_fill(strip.Color(255, 255, 255));
+  }
+
+  // On - TODO
+  if(val_a == HIGH && val_b == LOW){
+    strip_fill(strip.Color(255, 0, 0));
+  }
+
+  // On - TODO
+  if(val_a == HIGH && val_b == HIGH){
+    strip_fill(strip.Color(255, 0, 0));
+  }
 }
 
 // --------------------------------------- STATE MACHINES ---------------------------------------- //
@@ -70,7 +109,7 @@ void SM_switch_a(){
     break;
     
     case 2: // 2 - Trigger LOW
-      
+      val_a = LOW;
       state_switch_a = 3;
     break;
     
@@ -88,7 +127,7 @@ void SM_switch_a(){
     break;
     
     case 5: // 5 - Trigger HIGH
-      
+      val_a = HIGH;
       state_switch_a = 0;
     break;
     
@@ -116,7 +155,7 @@ void SM_switch_b(){
     break;
     
     case 2: // 2 - Trigger LOW
-      
+      val_b = LOW;
       state_switch_b = 3;
     break;
     
@@ -134,7 +173,7 @@ void SM_switch_b(){
     break;
     
     case 5: // 5 - Trigger HIGH
-      
+      val_b = HIGH;
       state_switch_b = 0;
     break;
     
@@ -144,3 +183,10 @@ void SM_switch_b(){
 }
 
 // ------------------------------------------ FUNCTIONS ------------------------------------------ //
+
+void strip_fill(uint32_t color){
+  for(int i = 0; i < num_pixels; i++){
+    strip.setPixelColor(i, color);
+  }
+  strip.show();
+}
