@@ -33,9 +33,9 @@ bool val_c = LOW;
 
 // ----------------------------------- STATE MACHINE VARIABLES ----------------------------------- //
 
-int state_switch_a = 0;
-int state_switch_b = 0;
-int state_switch_c = 0;
+int state_switch_a = 2;
+int state_switch_b = 2;
+int state_switch_c = 2;
 
 // ------------------------------------- Timers & Timestamps ------------------------------------- //
 
@@ -51,6 +51,9 @@ unsigned long t_0_switch_c = 0;
 // ----------------------------------------- SETUP LOOP ------------------------------------------ //
 
 void setup(){
+  // Wait for initial power-on
+  delay(1000);
+  
   // Initialize input pins
   pinMode(pin_switch_a, INPUT);
   pinMode(pin_switch_b, INPUT);
@@ -58,9 +61,9 @@ void setup(){
 
   // Initialize the NeoPixel object
   strip.begin();
+  strip.setBrightness(255);
   strip.clear();
   strip.show();
-  strip.setBrightness(255);
   
   // Begin serial communication
   Serial.begin(115200);
@@ -69,6 +72,7 @@ void setup(){
 // ---------------------------------------- PROGRAM LOOP ----------------------------------------- //
 
 void loop(){
+  // Wait to update the lighting mode, prevents repeatedly calling blocking functions after switches change position
   t_0 = millis();
   t = millis();
   while(t - t_0 <= 250){
