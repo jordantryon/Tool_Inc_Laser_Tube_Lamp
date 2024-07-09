@@ -1,4 +1,4 @@
-# Laser-Tube-Light
+# tool., Inc - Laser Tube Light
 Laser tube converted into a NeoPixel light fixture.
 
 ![Banner](./Renders/Banner.png)
