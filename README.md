@@ -1,5 +1,7 @@
 # Laser-Tube-Light
-Arduino code for controlling a NeoPixel strip lighting fixture.
+Laser tube converted into a NeoPixel light fixture.
+
+![Banner](./Renders/Banner.png)
 
 ## Bill of Materials
 
