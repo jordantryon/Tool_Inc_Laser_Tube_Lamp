@@ -13,7 +13,7 @@ Do you have an old, dead, laser tube taking up space that you're not sure what t
 |1|0|0|Laser Build|
 |1|0|1|Breathing Cycle|
 |1|1|0|Fill Cycle|
-|1|1|1|Raindow Slide|
+|1|1|1|Rainbow Slide|
 
 ## Bill of Materials
 
