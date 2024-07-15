@@ -1,5 +1,5 @@
 // Author: Jordan Tryon - tool., Inc.
-// Modified: 5/31/2024
+// Modified: 7/15/2024
 // Project: Laser Tube Light
 // Description: Arduino code for controlling a NeoPixel strip lighting fixture. 
 
