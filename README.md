@@ -3,6 +3,18 @@ Do you have an old, dead, laser tube taking up space that you're not sure what t
 
 ![Banner](./Renders/Banner.png)
 
+## Lighting Modes
+|Switch C|Switch B|Switch A|Mode|
+|:---|:---|:---|:---|
+|0|0|0|Off|
+|0|0|1|Cool White|
+|0|1|0|Warm White|
+|0|1|1|Wave Bounce|
+|1|0|0|Laser Build|
+|1|0|1|Breathing Cycle|
+|1|1|0|Fill Cycle|
+|1|1|1|Raindow Slide|
+
 ## Bill of Materials
 
 ### 3D Prints
