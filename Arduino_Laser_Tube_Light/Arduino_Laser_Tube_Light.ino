@@ -75,7 +75,7 @@ void loop(){
   // Wait to update the lighting mode, prevents repeatedly calling blocking functions after switches change position
   t_0 = millis();
   t = millis();
-  while(t - t_0 <= 250){
+  while(t - t_0 <= 20){
     t = millis();
     SM_switch_a();
     SM_switch_b();
