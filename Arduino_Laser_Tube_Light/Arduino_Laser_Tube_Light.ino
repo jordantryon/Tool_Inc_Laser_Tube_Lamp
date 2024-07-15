@@ -83,44 +83,44 @@ void loop(){
   }
 
   // Off
-  if(val_a == LOW && val_b == LOW && val_c == LOW){
+  if(val_c == LOW && val_b == LOW && val_a == LOW){
     strip.clear();
     strip.show();
   }
 
-  // On - White
-  if(val_a == HIGH && val_b == LOW && val_c == LOW){
-    strip_fill(strip.Color(255, 255, 255));
+  // On - Cool White
+  if(val_c == LOW && val_b == LOW && val_a == HIGH){
+    strip_fill(255, 255, 255);
   }
 
-  // On - TODO
-  if(val_a == LOW && val_b == HIGH && val_c == LOW){
-    rainbow();
+  // On - Warm White
+  if(val_c == LOW && val_b == HIGH && val_a == LOW){
+    strip_fill(255, 100, 10);
   }
 
-  // On - TODO
-  if(val_a == HIGH && val_b == HIGH && val_c == LOW){
-    strip_fill(strip.Color(255, 0, 0));
+  // On - Wave Bounce
+  if(val_c == LOW && val_b == HIGH && val_a == HIGH){
+    wave_bounce(255, 100, 10);
   }
 
-  // On - TODO
-  if(val_a == LOW && val_b == LOW && val_c == HIGH){
-    strip_fill(strip.Color(255, 0, 0));
+  // On - Laser Build
+  if(val_c == HIGH && val_b == LOW && val_a == LOW){
+    laser_build(255, 100, 10);
   }
 
-  // On - TODO
-  if(val_a == HIGH && val_b == LOW && val_c == HIGH){
-    strip_fill(strip.Color(255, 0, 0));
+  // On - Breathing Cycle
+  if(val_c == HIGH && val_b == LOW && val_a == HIGH){
+    breathing_cycle();
   }
 
-  // On - TODO
-  if(val_a == LOW && val_b == HIGH && val_c == HIGH){
-    strip_fill(strip.Color(255, 0, 0));
+  // On - Fill Cycle
+  if(val_c == HIGH && val_b == HIGH && val_a == LOW){
+    fill_cycle();
   }
 
-  // On - TODO
-  if(val_a == HIGH && val_b == HIGH && val_c == HIGH){
-    strip_fill(strip.Color(255, 0, 0));
+  // On - Rainbow Slide
+  if(val_c == HIGH && val_b == HIGH && val_a == HIGH){
+    rainbow_slide();
   }
 }
 
@@ -266,47 +266,261 @@ void SM_switch_c(){
 
 // ------------------------------------------ FUNCTIONS ------------------------------------------ //
 
-void strip_fill(uint32_t color){
+void strip_fill(int r, int g, int b){
   for(int i = 0; i < num_pixels; i++){
-    strip.setPixelColor(i, color);
+    strip.setPixelColor(i, strip.Color(r, g, b));
   }
   strip.show();
 }
 
-void rainbow(){
+void fill_cycle(){
+  fill_cycle(10);
+}
+
+void fill_cycle(unsigned long d){
   int r = 255;
   int g = 0;
   int b = 0;
-  unsigned long d = 10;
 
   for(int i = 0; i <= 255; i++){
     g = i;
-    strip_fill(strip.Color(r, g, b));
+    strip_fill(r, g, b);
     delay(d);
   }
   for(int i = 255; i >= 0; i--){
     r = i;
-    strip_fill(strip.Color(r, g, b));
+    strip_fill(r, g, b);
     delay(d);
   }
   for(int i = 0; i <= 255; i++){
     b = i;
-    strip_fill(strip.Color(r, g, b));
+    strip_fill(r, g, b);
     delay(d);
   }
   for(int i = 255; i >= 0; i--){
     g = i;
-    strip_fill(strip.Color(r, g, b));
+    strip_fill(r, g, b);
     delay(d);
   }
   for(int i = 0; i <= 255; i++){
     r = i;
-    strip_fill(strip.Color(r, g, b));
+    strip_fill(r, g, b);
     delay(d);
   }
   for(int i = 255; i >= 0; i--){
     b = i;
-    strip_fill(strip.Color(r, g, b));
+    strip_fill(r, g, b);
+    delay(d);
+  }
+}
+
+void breathing_cycle(){
+  breathing_cycle(10);
+}
+
+void breathing_cycle(unsigned long d){
+  int r = 0;
+  int g = 0;
+  int b = 0;
+
+  for(int i = 0; i <= 255; i++){
+    r = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 255; i >= 0; i--){
+    r = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 0; i <= 255; i++){
+    r = i;
+    g = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 255; i >= 0; i--){
+    r = i;
+    g = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 0; i <= 255; i++){
+    g = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 255; i >= 0; i--){
+    g = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 0; i <= 255; i++){
+    g = i;
+    b = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 255; i >= 0; i--){
+    g = i;
+    b = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 0; i <= 255; i++){
+    b = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 255; i >= 0; i--){
+    b = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 0; i <= 255; i++){
+    b = i;
+    r = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+  for(int i = 255; i >= 0; i--){
+    b = i;
+    r = i;
+    strip_fill(r, g, b);
+    delay(d);
+  }
+}
+
+void block_bounce(int r, int g, int b){
+  block_bounce(r, g, b, 10, 30);
+}
+
+void block_bounce(int r, int g, int b, int L){
+  block_bounce(r, g, b, L, 30);
+}
+
+void block_bounce(int r, int g, int b, int L, unsigned long d){
+  // Send pixels up the strip
+  for(int i = 0; i <= num_pixels - L; i++){
+    // Turn on pixels
+    for(int j = 0; j < L; j++){
+      strip.setPixelColor(i + j, strip.Color(r, g, b));
+    }
+    // Turn off trailing pixel
+    if(i > 0){
+      strip.setPixelColor(i - 1, strip.Color(0, 0, 0));
+    }
+    strip.show();
+    delay(d);
+  }
+
+  // Send pixels down the strip
+  for(int i = num_pixels - L; i >= 0; i--){
+    // Turn on pixels
+    for(int j = 0; j < L; j++){
+      strip.setPixelColor(i + j, strip.Color(r, g, b));
+    }
+    // Turn off trailing pixel
+    if(i + L < num_pixels){
+      strip.setPixelColor(i + L, strip.Color(0, 0, 0));
+    }
+    strip.show();
+    delay(d);
+  }
+}
+
+void wave_bounce(int r, int g, int b){
+  wave_bounce(r, g, b, 15, 30);
+}
+
+void wave_bounce(int r, int g, int b, int L){
+  wave_bounce(r, g, b, L, 30);
+}
+
+void wave_bounce(int r, int g, int b, int L, unsigned long d){
+  // Calculate mid point
+  int mid = L/2;
+
+  // Send pixels up the strip
+  for(int i = -mid; i <= num_pixels - mid - 1; i++){
+    // Turn on pixels
+    for(int j = 0; j < L; j++){
+      // Exp map | y = e^(-(x^2)) | the domain from 0 to 2 looks good
+      float x = abs(j-mid)/(float)mid*2.0;
+      float y = exp(-pow(x,2));
+      int r_map = r*y;
+      int g_map = g*y;
+      int b_map = b*y;
+      strip.setPixelColor(i + j, strip.Color(r_map, g_map, b_map));
+    }
+    // Turn off trailing pixel
+    if(i > 0){
+      strip.setPixelColor(i - 1, strip.Color(0, 0, 0));
+    }
+    strip.show();
+    delay(d);
+  }
+
+  // Send pixels down the strip
+  for(int i = num_pixels - mid - 1; i >= -mid; i--){
+    // Turn on pixels
+    for(int j = 0; j < L; j++){
+      // Exp map | y = e^(-(x^2)) | the domain from 0 to 2 looks good
+      float x = abs(j-mid)/(float)mid*2.0;
+      float y = exp(-pow(x,2));
+      int r_map = r*y;
+      int g_map = g*y;
+      int b_map = b*y;
+      strip.setPixelColor(i + j, strip.Color(r_map, g_map, b_map));
+    }
+    // Turn off trailing pixel
+    if(i + L < num_pixels){
+      strip.setPixelColor(i + L, strip.Color(0, 0, 0));
+    }
+    strip.show();
+    delay(d);
+  }
+}
+
+void laser_build(int r, int g, int b){
+  laser_build(r, g, b, 3);
+}
+
+void laser_build(int r, int g, int b, unsigned long d){
+  // Build the strip
+  for(int i = num_pixels; i > 0; i--){
+    for(int j = 0; j < i; j++){
+      strip.setPixelColor(j, strip.Color(r, g, b));
+      if(j > 0){
+        strip.setPixelColor(j - 1, strip.Color(0, 0, 0));
+      }
+      strip.show();
+      delay(d);
+    }
+    delay(d*100);
+  }
+
+  // Clear the strip
+  for(int i = 0; i < num_pixels; i++){
+    strip.setPixelColor(i, strip.Color(0, 0, 0));
+    strip.show();
+    delay(d);
+  }
+  delay(d*100);
+}
+
+void rainbow_slide(){
+  rainbow_slide(15);
+}
+
+void rainbow_slide(unsigned long d){
+  uint16_t max_val = 65535;
+  uint16_t step_size = 100;
+  uint16_t step_count = max_val/step_size;
+  
+  for(uint16_t i = 0; i <= step_count; i++){
+    strip.rainbow(i*step_size, 1);
+    strip.show();
     delay(d);
   }
 }
