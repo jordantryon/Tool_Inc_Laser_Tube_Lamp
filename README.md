@@ -1,7 +1,13 @@
 # Tool., Inc - Laser Tube Lamp
-Do you have an old, dead, laser tube taking up space that you're not sure what to do with? They look so cool, why not turn it into a light fixture? The engineers at [tool., Inc.](https://toolinc.com/) have done just that! We converted an old 120W, 80mm diameter, 1450mm long, CO2 laser tube into a, slightly less powerful, 25W LED fixture. Using an Arduino and NeoPixels, you can go from plain white to custom RGB lighting effects in the flick of a switch. We've open sourced the project so you too can DIY the most expensive lamp in your shop!
+![Laser Tube Lamp SolidWorks](./Images/laser-tube-lamp-SW.png)
 
-![Banner](./Renders/Banner.png)
+At Tool., Inc. our engineers and designers are constantly using our Lasersaur CNC laser cutter/engraver. Usually to rapidly produce project prototypes but occasionally to make furniture and pieces around the office. Unfortunately, the laser tube that makes the magic happen slowly degrades over time and needs to be replaced. So, what do you do with the old dead tube? It looks super cool so it feels bad to just throw it away. Why not turn it into a unique light fixture?! 
+
+With the new laser tube installed in the machine, we cut a handful of 1/8" acrylic parts and got our Ultimaker 3D printers going on some PLA components. All the hardware is fairly standard and can be found at a local hardware store, or every mechanical engineer's favorite: McMaster-Carr. Using an Arduino and Adafruit NeoPixels, any light can go from plain white to fully custom and dynamic RGB lighting effects in the flick of a switch. Ours uses three toggle switches to select from up to eight preprogrammed lighting modes. We enlisted one of our summer interns to help turn the lighting animations into the 1s and 0s. 
+
+Combine all that with an old 120W, 80mm diameter, 1450mm long, CO2 laser tube and you get a, slightly less destructive, 25W LED lamp. It makes a perfect addition to any shop, makerspace, studio, or employee kitchen and lounge. 
+
+We've open-sourced the project so you too can DIY the most expensive lamp in your shop! This GitHub repository has the instructions, bill of materials, CAD files, and source code. The design was based around our laser tube and equipment but you can adjust it to fit your needs. 
 
 ## Lighting Modes
 |Switch C|Switch B|Switch A|Mode|
@@ -56,6 +62,10 @@ Do you have an old, dead, laser tube taking up space that you're not sure what t
 |NeoPixel Strip (2 m)|2540|1|[Adafruit](https://www.adafruit.com/product/2540)|To save a couple bucks, buying two 1 m strips can be cheaper.|
 |Resistor (470 Ω)|CF14JT470R|1|[DigiKey](https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT470R/1741440)||
 |Capacitor (1,000 μF)|ECA-0JM102|1|[DigiKey](https://www.digikey.com/en/products/detail/panasonic-electronic-components/ECA-0JM102/244974)||
+
+## Images
+![Laser Tube Lamp SolidWorks](./Images/laser-tube-lamp-close.jpg)
+![Laser Tube Lamp SolidWorks](./Images/laser-tube-lamp-office.jpg)
 
 ## Author
 Jordan Tryon for tool., Inc.
