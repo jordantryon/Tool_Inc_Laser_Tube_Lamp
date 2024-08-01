@@ -1,4 +1,4 @@
-# tool., Inc - Laser Tube Lamp
+# Tool., Inc - Laser Tube Lamp
 Do you have an old, dead, laser tube taking up space that you're not sure what to do with? They look so cool, why not turn it into a light fixture? The engineers at [tool., Inc.](https://toolinc.com/) have done just that! We converted an old 120W, 80mm diameter, 1450mm long, CO2 laser tube into a, slightly less powerful, 25W LED fixture. Using an Arduino and NeoPixels, you can go from plain white to custom RGB lighting effects in the flick of a switch. We've open sourced the project so you too can DIY the most expensive lamp in your shop!
 
 ![Banner](./Renders/Banner.png)
