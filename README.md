@@ -1,7 +1,7 @@
 # Tool., Inc - Laser Tube Lamp
 ![Laser Tube Lamp SolidWorks](./Images/laser-tube-lamp-SW.png)
 
-At Tool., Inc. our engineers and designers are constantly using our Lasersaur CNC laser cutter/engraver. Usually to rapidly produce project prototypes but occasionally to make furniture and pieces around the office. Unfortunately, the laser tube that makes the magic happen slowly degrades over time and needs to be replaced. So, what do you do with the old dead tube? It looks super cool so it feels bad to just throw it away. Why not turn it into a unique light fixture?! 
+At [Tool., Inc.](https://toolinc.com/) our engineers and designers are constantly using our Lasersaur CNC laser cutter/engraver. Usually to rapidly produce project prototypes but occasionally to make furniture and pieces around the office. Unfortunately, the laser tube that makes the magic happen slowly degrades over time and needs to be replaced. So, what do you do with the old dead tube? It looks super cool so it feels bad to just throw it away. Why not turn it into a unique light fixture?! 
 
 With the new laser tube installed in the machine, we cut a handful of 1/8" acrylic parts and got our Ultimaker 3D printers going on some PLA components. All the hardware is fairly standard and can be found at a local hardware store, or every mechanical engineer's favorite: McMaster-Carr. Using an Arduino and Adafruit NeoPixels, any light can go from plain white to fully custom and dynamic RGB lighting effects in the flick of a switch. Ours uses three toggle switches to select from up to eight preprogrammed lighting modes. We enlisted one of our summer interns to help turn the lighting animations into the 1s and 0s. 
 
